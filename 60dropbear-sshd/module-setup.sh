@@ -77,9 +77,7 @@ install() {
 	# It can do without nsswitch.conf, resolv.conf or whatever other stuff it usually has.
 
 	# Helper to safely send password to cryptsetup on /dev/console without echoing it.
-	# Yeah, dracut modules shouldn't compile stuff, but I'm not packaging that separately.
-	gcc -std=gnu99 -O2 -Wall "$moddir"/auth.c -o "$tmp"/auth
-	inst "$tmp"/auth /bin/console_auth
+	inst "$moddir"/auth /bin/console_auth
 
 	# Generate hooks right here, with parameters baked-in
 	[[ -z "${dropbear_port}" ]] && dropbear_port=2222
