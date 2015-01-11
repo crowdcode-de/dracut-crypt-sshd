@@ -36,6 +36,7 @@ install() {
 	local tmp=$(mktemp -d --tmpdir dracut-crypt-sshd.XXXX)
 
 	dracut_install pkill setterm /lib64/libnss_files.so.2
+	dracut_install netstat ip
 	inst $(which dropbear) /sbin/dropbear
 	inst "$moddir"/console_peek.sh /bin/console_peek
 
